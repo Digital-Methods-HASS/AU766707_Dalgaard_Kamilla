@@ -184,7 +184,8 @@ unique(Got_afinn2$word)
 
 Got_afinn2_n <- Got_afinn2 %>% 
   count(word, sort = TRUE) %>% 
-  mutate(word = fct_reorder(factor(word), n))
+  mutate(word = fct_reorder(factor(word), n)) %>% 
+  slice(1:20)
 
 ggplot(data = Got_afinn2_n, aes(x = word, y = n)) +
   geom_col() +
